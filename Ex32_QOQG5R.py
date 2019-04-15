@@ -48,4 +48,4 @@ try:
     f.close()
 
 except (ValueError, NameError, FileNotFoundError):
-    print("Az adott ertek termeszetes szam (int) kell legyen.")
+    print("Az adott ertek 0-nal nagyobb termeszetes szam (int) kell legyen.")
