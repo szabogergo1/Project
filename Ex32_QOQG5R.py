@@ -6,15 +6,15 @@ def epit(pir):
     szam = 1
 
     while i <= N and szam <= N:
-        pir[i][N] = szam
+        pir[i][N] = str(szam % 10)
         jobb = N - 1
         bal = N + 1
         jobbertek = szam - 1
         balertek = szam - 1
 
         while jobbertek > 0:
-            pir[i][jobb] = jobbertek
-            pir[i][bal] = balertek
+            pir[i][jobb] = str(jobbertek % 10)
+            pir[i][bal] = str(balertek % 10)
             jobbertek -= 1
             balertek -= 1
             jobb -= 1
@@ -27,10 +27,10 @@ def epit(pir):
 def filebeir(pir, fo, n):
     for i in range(n):
         for j in range(1, 2*n):
-            if pir[i][j] == 0:
+            if pir[i][j] == "":
                 print(" ", end=" ", file=fo)
             else:
-                print(pir[i][j] % 10, end=" ", file=fo)
+                print(pir[i][j], end=" ", file=fo)
 
         print(file=fo)
 
@@ -39,7 +39,7 @@ try:
     f = open("output.txt", "w")
     N = int(input("Adja meg a szamot: "))
 
-    piramis = np.zeros((N, 2*N), dtype=int)
+    piramis = np.zeros((N, 2*N), dtype=str)
 
     epit(piramis)
 
