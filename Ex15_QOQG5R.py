@@ -12,11 +12,12 @@ try:
         epit = ""
         for i in szam:
             if epit == "" and i == 0:
-                continue
+                break
             else:
                 epit += str(i)
 
-        print(epit)
+        if epit != "":
+            print(epit)
 
 except ValueError:
     print("A beolvasott ertek egesz szam kell legyen")
